@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     user = User.new(
       name: params[:name],
       email: params[:email],
+      image_url: params[:image_url],
       password: params[:password],
       password_confirmation: params[:password_confirmation]
     )
@@ -14,5 +15,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    user = User.find(params[:id])
+    render json: user
+  end
+
+  def update
+    user = User.find(params[:id])
+    if params[:password] && params[:password_confirmation]
+      user.password = params[:password]
+      user.password_confirmation = params[:password_confirmation]
+    end
+    user.name = params[:name] || user.name
+    user.image_url = params[:image_url] || user.image_url
+    user.email = params[:email] || user.email
+    user.save
+    render json: user
+  end
 
 end
