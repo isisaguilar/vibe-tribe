@@ -1,32 +1,129 @@
-### Users create (signup)
-POST http://localhost:3000/users
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzUxODc0NzB9.BzJPrmPE1Jiug3hURrbAztWsZjbQljWjXBQj_EIP6CE
+@hostname = http://localhost:3000
+
+### Sessions create (login)
+POST {{hostname}}/sessions
 Content-Type: application/json
 
 {
-  "name": "Test name",
-  "email": "test@test.com",
+  "email": "tay@mail.com",
+  "password": "password"
+}
+
+### Users create (signup)
+POST {{hostname}}/users
+Content-Type: application/json
+
+{
+  "name": "test",
+  "email": "ldsa@mail.com",
   "password": "password",
   "password_confirmation": "password"
 }
 
-### Sessions create (login)
-POST http://localhost:3000/sessions
-Content-Type: application/json
-
-{
-  "email": "test@test.com",
-  "password": "password"
-}
-
 ### User show (user homepage)
-GET http://localhost:3000/users/4
+GET {{hostname}}/users/5
 Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 ###user update
-PATCH http://localhost:3000/users/1
+PATCH {{hostname}}/users/1
 Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 {
-  "name":"Aspen",
-  "email":"aspen11@mail.com"
+  "email":"sterling1@mail.com"
+}
+
+###user destroy
+DELETE {{hostname}}/users/7
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+###post index
+GET {{hostname}}/posts
+Content-Type: application/json
+
+###post create
+POST {{hostname}}/posts
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+
+  "blurb": "crystals for days",
+  "blog": "all the cool crystals info right here",
+  "image_url": "cool pic here",
+  "video_url": "sweet video"
+}
+
+###post show
+GET {{hostname}}/posts/1
+Content-Type: application/json
+
+###post update
+PATCH {{hostname}}/posts/4
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "blurb": "crystals for days!!!!",
+  "blog": "all the cool crystals info right here"
+}
+
+###comment create
+POST {{hostname}}/comments
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "post_id": 3,
+  "body": "wowww",
+  "image_url": "cute pic"
+}
+
+###comment show
+GET {{hostname}}/comments/2
+Content-Type: application/json
+
+###comment update
+PATCH {{hostname}}/comments/5
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "body": "this is kinda funny",
+  "image_url": "funnier gif"
+}
+
+###comment destroy
+DELETE {{hostname}}/comments/5
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+###board index
+GET {{hostname}}/boards
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+###board create
+POST {{hostname}}/boards
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "name": "meditation vibes"
+}
+
+###board show
+GET {{hostname}}/boards/3
+Content-Type: application/json
+
+###board update
+PATCH {{hostname}}/boards/4
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "name": "really cool pics"
 }
