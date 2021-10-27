@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user
   def index
     post = Post.all
     render json: post
@@ -6,7 +7,6 @@ class PostsController < ApplicationController
 
   def create
     post = Post.new(
-      user_id: 1,
       blurb: params[:blurb],
       blog: params[:blog],
       image_url: params[:image_url],

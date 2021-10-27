@@ -1,9 +1,10 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzUxODc0NzB9.BzJPrmPE1Jiug3hURrbAztWsZjbQljWjXBQj_EIP6CE
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzU0MzIxODR9.larEdyr3jBo4_zy5AncDHasKfRhSDf_FQEShL1CSZwU
 @hostname = http://localhost:3000
 
 ### Sessions create (login)
 POST {{hostname}}/sessions
 Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 {
   "email": "tay@mail.com",
@@ -44,7 +45,7 @@ Authorization: Bearer {{jwt}}
 GET {{hostname}}/posts
 Content-Type: application/json
 
-###post create
+###post create 
 POST {{hostname}}/posts
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
@@ -127,3 +128,23 @@ Authorization: Bearer {{jwt}}
 {
   "name": "really cool pics"
 }
+
+###board destroy
+DELETE {{hostname}}/board/11
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+###post_board create
+POST {{hostname}}/post_boards
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "post_id": 4,
+  "board_id":6
+}
+
+###post_board destroy
+DELETE {{hostname}}/post_boards/9
+Content-Type: application/json
+Authorization: Bearer {{jwt}}

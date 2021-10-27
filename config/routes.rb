@@ -39,4 +39,9 @@ Rails.application.routes.draw do
   patch "/boards/:id" => "boards#update"
   #boards destroy
   delete "/boards/:id" => "boards#destroy"
+
+  #post_boards create
+  post "/post_boards" => "post_boards#create"
+  #post_boards destroy
+  delete "/post_boards/:id" => "post_boards#destroy"
 end
