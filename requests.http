@@ -7,7 +7,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email": "tay@mail.com",
+  "email": "lucy@mail.com",
   "password": "password"
 }
 
@@ -16,8 +16,8 @@ POST {{hostname}}/users
 Content-Type: application/json
 
 {
-  "name": "dani",
-  "email": "dania@mail.com",
+  "name": "Baby Yoda",
+  "email": "grogu@mail.com",
   "password": "password",
   "password_confirmation": "password"
 }
