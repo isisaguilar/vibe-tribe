@@ -9,19 +9,18 @@ class UsersController < ApplicationController
       password_confirmation: params[:password_confirmation]
     )
     if user.save
-      render json: { message: "User created successfully" }, status: :created
+      render json: user , status: :created
     else
       render json: { errors: user.errors.full_messages }, status: :bad_request
     end
   end
 
   def show
-    user = User.find(current_user.id)
-    render json: user
+    render json: current_user
   end
 
   def update
-    user = User.find(current_user.id)
+    user = current_user
     if params[:password] && params[:password_confirmation]
       user.password = params[:password]
       user.password_confirmation = params[:password_confirmation]
@@ -38,11 +37,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id])
-    if user.destroy
-      render json: {message:"User has been destroyed!"}
-    else
-      render json: user.errors.full_messages, status: :unprocessable_entity
-    end
+    user = current_user
+    user.destroy
+    render json: {message:"User has been destroyed!"}
+    
   end
 end

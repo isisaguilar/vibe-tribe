@@ -20,7 +20,7 @@ class BoardsController < ApplicationController
 
   def show
     board = Board.find(params[:id])
-    render json: board.posts
+    render json: board, include: "post_boards.post"
   end
 
   def update

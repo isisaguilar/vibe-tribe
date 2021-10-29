@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   #users create(signup)
   post "/users" => "users#create"
   #Users show
-  get "/users/:id" => "users#show"
+  get "/users/me" => "users#show"
   #users update
-  patch "/users/:id" => "users#update"
+  patch "/users/me" => "users#update"
   #users destroy
-  delete "/users/:id" => "users#destroy"
+  delete "/users/me" => "users#destroy"
 
   #posts index
   get "/posts" => "posts#index"

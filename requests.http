@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzU0MzIxODR9.larEdyr3jBo4_zy5AncDHasKfRhSDf_FQEShL1CSZwU
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzU1NDYwNzJ9.0sTO6tecVAEvZbP0CfussbBasKyyuYcLFzXs8sOBvPY
 @hostname = http://localhost:3000
 
 ### Sessions create (login)
@@ -16,28 +16,28 @@ POST {{hostname}}/users
 Content-Type: application/json
 
 {
-  "name": "test",
-  "email": "ldsa@mail.com",
+  "name": "dani",
+  "email": "dania@mail.com",
   "password": "password",
   "password_confirmation": "password"
 }
 
 ### User show (user homepage)
-GET {{hostname}}/users/5
+GET {{hostname}}/users/me
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 ###user update
-PATCH {{hostname}}/users/1
+PATCH {{hostname}}/users/me
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email":"sterling1@mail.com"
+  "email":"tay1@mail.com"
 }
 
 ###user destroy
-DELETE {{hostname}}/users/7
+DELETE {{hostname}}/users/me
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -51,9 +51,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-
-  "blurb": "crystals for days",
-  "blog": "all the cool crystals info right here",
+  "blurb": "crystalssss for days",
   "image_url": "cool pic here",
   "video_url": "sweet video"
 }
@@ -63,7 +61,7 @@ GET {{hostname}}/posts/1
 Content-Type: application/json
 
 ###post update
-PATCH {{hostname}}/posts/4
+PATCH {{hostname}}/posts/8
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -78,7 +76,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "post_id": 3,
+  "post_id": 8,
   "body": "wowww",
   "image_url": "cute pic"
 }
@@ -88,7 +86,7 @@ GET {{hostname}}/comments/2
 Content-Type: application/json
 
 ###comment update
-PATCH {{hostname}}/comments/5
+PATCH {{hostname}}/comments/7
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -98,7 +96,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ###comment destroy
-DELETE {{hostname}}/comments/5
+DELETE {{hostname}}/comments/7
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -113,7 +111,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "name": "meditation vibes"
+  "name": "meditation stuff"
 }
 
 ###board show
@@ -121,16 +119,16 @@ GET {{hostname}}/boards/3
 Content-Type: application/json
 
 ###board update
-PATCH {{hostname}}/boards/4
+PATCH {{hostname}}/boards/1
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "name": "really cool pics"
+  "name": "good vibess"
 }
 
 ###board destroy
-DELETE {{hostname}}/board/11
+DELETE {{hostname}}/boards/4
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -145,6 +143,6 @@ Authorization: Bearer {{jwt}}
 }
 
 ###post_board destroy
-DELETE {{hostname}}/post_boards/9
+DELETE {{hostname}}/post_boards/10
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
