@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
 
   def index
-    boards = current_user.boards
+    boards = current_user.boards.includes(:post_boards)
     render json: boards
   end
 
@@ -19,7 +19,7 @@ class BoardsController < ApplicationController
   end
 
   def show
-    board = Board.find(params[:id])
+    board = Board.includes(:post_boards).find(params[:id])
     render json: board, include: "post_boards.post"
   end
 

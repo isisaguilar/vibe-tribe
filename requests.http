@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzU1NDYwNzJ9.0sTO6tecVAEvZbP0CfussbBasKyyuYcLFzXs8sOBvPY
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzU4NjgxOTh9.EOPFxVK8tFzuQCZ7xHpgg0_wY5ZPZd7NICax4CmTsF4
 @hostname = http://localhost:3000
 
 ### Sessions create (login)
@@ -7,7 +7,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email": "lucy@mail.com",
+  "email": "tay1@mail.com",
   "password": "password"
 }
 
@@ -33,7 +33,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "email":"tay1@mail.com"
+  "image_url":"https://images.static-ziprealty.com/z/1629483439000/images_personnel/v3/BHG/7983/240071/ta/tayja.joshua/medium.jpeg"
 }
 
 ###user destroy

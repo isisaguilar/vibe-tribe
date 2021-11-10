@@ -22,12 +22,11 @@ class CommentsController < ApplicationController
 
   def update
    comment = Comment.find(params[:id])
-   comment.user_id = current_user.id
-   comment.post_id = params[:post_id] || comment.post_id
-   comment.body = params[:blurb] || comment.body
+   
+   comment.body = params[:body] || comment.body
    comment.image_url = params[:image_url] || comment.image_url
     if comment.save
-      render json: comment , status: :created
+      render json: comment 
     else
       render json: { errors: comment.errors.full_messages }, status: :bad_request
     end
