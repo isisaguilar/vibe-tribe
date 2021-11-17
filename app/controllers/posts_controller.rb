@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user, except: [:index]
   def index
-    posts = Post.all
+    posts = Post.all.reverse
     render json: posts
   end
 
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
   def show
     post = Post.find(params[:id])
-    render json: post,  include: "comments.user"
+    render json: post,  include: "user,comments.user"
   end
 
 def update
